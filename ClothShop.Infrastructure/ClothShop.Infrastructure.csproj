@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Contexts\" />
-    <Folder Include="RepositoryInterface\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>
