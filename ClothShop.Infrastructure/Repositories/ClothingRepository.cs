@@ -35,7 +35,7 @@ namespace ClothShop.Infrastructure.Repositories
 
         public IEnumerable<ClothingArticle> ReadAll()
         {
-            throw new NotImplementedException();
+            return _ctx.Cloths;
         }
 
         public ClothingArticle Update(ClothingArticle enity)
