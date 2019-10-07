@@ -6,6 +6,7 @@ namespace ClothShop.Core.Entity.Enum
 {
     public class ClothingType
     {
+        public int id { get; set; }
         public string CType { get; set; }
         
     }

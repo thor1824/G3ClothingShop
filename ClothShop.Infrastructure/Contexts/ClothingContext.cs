@@ -16,17 +16,17 @@ namespace ClothShop.Infrastructure.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<PetOwner>()
-            //    .HasKey(po => new { po.PetID, po.OwnerID });
-            //modelBuilder.Entity<PetOwner>()
-            //    .HasOne(po => po.Pet)
-            //    .WithMany(p => p.PreviousOwners)
-            //    .HasForeignKey(bc => bc.PetID);
+            modelBuilder.Entity<ClothColor>()
+                .HasKey(cc => new { cc.ClothID, cc.ColorID });
+            modelBuilder.Entity<ClothColor>()
+                .HasOne(cc => cc.cloth)
+                .WithMany(c => c.Color)
+                .HasForeignKey(bc => bc.ClothID);
 
-            //modelBuilder.Entity<PetOwner>()
-            //    .HasOne(po => po.Owner)
-            //    .WithMany(o => o.PreviousOwnedPets)
-            //    .HasForeignKey(po => po.OwnerID);
+            modelBuilder.Entity<ClothColor>()
+                .HasOne(po => po.Color)
+                .WithMany(o => o.ClothingOfColor)
+                .HasForeignKey(po => po.ColorID);
 
         }
     }
