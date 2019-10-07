@@ -8,8 +8,15 @@ namespace ClothShop.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ClothingController : ControllerBase
     {
+
+        private readonly
+        public ClothingController
+        {
+            _clothService = clothService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
