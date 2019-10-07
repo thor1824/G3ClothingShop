@@ -6,7 +6,8 @@ namespace ClothShop.Core.Entity.Enum
 {
     public class ClothingSize
     {
-       public string Size { get; set; }
+        public int id { get; set; }
+        public string Size { get; set; }
 
     }
 }
