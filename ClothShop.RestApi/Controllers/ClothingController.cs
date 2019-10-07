@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClothShop.Core.ApplicationServices;
+using ClothShop.Core.ApplicationServices.Impl;
+using ClothShop.Core.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothShop.RestApi.Controllers
@@ -11,17 +14,17 @@ namespace ClothShop.RestApi.Controllers
     public class ClothingController : ControllerBase
     {
 
-        private readonly
-        public ClothingController
+        private readonly IClothService _clothService;
+        public ClothingController(IClothService clothService)
         {
             _clothService = clothService;
         }
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<ClothingArticle>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _clothService.ReadAll();
         }
 
         // GET api/values/5
