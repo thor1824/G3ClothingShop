@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClothShop.Core.Entity.Enum
 {
-    public enum Size
+    public enum ClothingSize
     {
     }
 }
