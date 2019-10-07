@@ -6,5 +6,11 @@ namespace ClothShop.Core.Entity.Enum
 {
     public enum ClothingType
     {
-    }
+        TShirt,
+        Sweater,
+        Hoodie,
+        TankTop,
+        Jacket,
+        Top,
+    };
 }

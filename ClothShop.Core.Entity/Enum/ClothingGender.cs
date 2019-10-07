@@ -6,5 +6,8 @@ namespace ClothShop.Core.Entity.Enum
 {
     public enum ClothingGender
     {
-    }
+        Male,
+        Female,
+        MultiGendered,
+    };
 }
