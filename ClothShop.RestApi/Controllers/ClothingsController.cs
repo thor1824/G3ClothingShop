@@ -42,7 +42,7 @@ namespace ClothShop.RestApi.Controllers
         {
             try
             {
-                return _clothService.Read(id);
+                return Ok(_clothService.Read(id));
             }
             catch (Exception e)
             {
@@ -58,7 +58,7 @@ namespace ClothShop.RestApi.Controllers
         {
             try
             {
-                return _clothService.Create(value);
+                return Ok(_clothService.Create(value));
             }
             catch (Exception e)
             {
@@ -74,7 +74,7 @@ namespace ClothShop.RestApi.Controllers
             try
             {
                 value.Id = id;
-                return _clothService.Update(value);
+                return Ok(_clothService.Update(value));
             }
             catch (Exception e)
             {
@@ -89,7 +89,7 @@ namespace ClothShop.RestApi.Controllers
         {
             try
             {
-                return _clothService.Delete(id);
+                return Ok(_clothService.Delete(id));
             }
             catch (Exception e)
             {
