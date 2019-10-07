@@ -8,18 +8,14 @@ namespace ClothShop.Core.ApplicationServices
 {
     public interface IClothService
     {
-        ClothingArticle Create(ClothingArticle cloth);
+        ClothingArticle Create(ClothingArticle clothingArticel);
 
-        List<ClothingArticle> ReadAll();
+        IList<ClothingArticle> ReadAll();
 
         ClothingArticle Read(int id);
 
-        ClothingArticle Delete(ClothingArticle cloth);
+        ClothingArticle Update(ClothingArticle clothingArticel);
 
-        ClothingArticle Update(ClothingArticle cloth);
-
-
-
-
+        ClothingArticle Delete(ClothingArticle clothingArticel);
     }
 }

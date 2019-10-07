@@ -17,32 +17,31 @@ namespace ClothShop.Core.ApplicationServices.Impl
             _repo = ClothRepo;
         }
 
-        public List<ClothingArticle> ReadAll()
+        public ClothingArticle Create(ClothingArticle clothingArticel)
+        {
+            return _repo.Create(clothingArticel);
+        }
+
+        public ClothingArticle Read(int id)
+        {
+            return _repo.Read(id);
+        }
+
+        public IList<ClothingArticle> ReadAll()
         {
             return _repo.ReadAll().ToList();
         }
+        public ClothingArticle Update(ClothingArticle clothingArticel)
+        {
+            return _repo.Update(clothingArticel);
+        }
+
+        public ClothingArticle Delete(ClothingArticle clothingArticel)
+        {
+            return _repo.Delete(clothingArticel);
+        }
+
         
-
-        public ClothingArticle Create(ClothingArticle cloth)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public  ClothingArticle Read(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ClothingArticle Delete(ClothingArticle cloth)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ClothingArticle Update(ClothingArticle cloth)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
