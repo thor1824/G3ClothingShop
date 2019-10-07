@@ -27,7 +27,7 @@ namespace ClothShop.Core.ApplicationServices.Impl
             return _repo.Read(id);
         }
 
-        public IList<ClothingArticle> ReadAll()
+        public List<ClothingArticle> ReadAll()
         {
             return _repo.ReadAll().ToList();
         }
@@ -36,9 +36,9 @@ namespace ClothShop.Core.ApplicationServices.Impl
             return _repo.Update(clothingArticel);
         }
 
-        public ClothingArticle Delete(ClothingArticle clothingArticel)
+        public ClothingArticle Delete(int id)
         {
-            return _repo.Delete(clothingArticel);
+            return _repo.Delete(Read(id));
         }
 
         

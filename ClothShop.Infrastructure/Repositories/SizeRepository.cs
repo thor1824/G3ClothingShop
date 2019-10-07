@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ClothShop.Infrastructure.Repositories
 {
-    class SizeRepository : IRepository<ClothingSize>
+    public class SizeRepository : IRepository<ClothingSize>
     {
         private readonly ClothingContext _ctx;
 

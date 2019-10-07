@@ -5,16 +5,16 @@ using System.Text;
 
 namespace ClothShop.Core.ApplicationServices
 {
-    interface ITypeService
+    public interface IColorService
     {
         ClothingColor Create(ClothingColor clothingArticel);
 
-        IList<ClothingColor> ReadAll();
+        List<ClothingColor> ReadAll();
 
         ClothingColor Read(int id);
 
         ClothingColor Update(ClothingColor clothingArticel);
 
-        ClothingColor Delete(ClothingColor clothingArticel);
+        ClothingColor Delete(int id);
     }
 }

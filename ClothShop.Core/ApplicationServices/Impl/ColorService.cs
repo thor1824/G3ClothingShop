@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using ClothShop.Core.DomainServices;
 using ClothShop.Core.Entity.Enum;
 
 namespace ClothShop.Core.ApplicationServices.Impl
 {
-    class ColorService : IColorService
+    public class ColorService : IColorService
     {
         private IRepository<ClothingColor> _repo;
 
@@ -14,29 +16,29 @@ namespace ClothShop.Core.ApplicationServices.Impl
             _repo = repo;
         }
 
-        public ClothingColor Create(ClothingColor clothingArticel)
+        public ClothingColor Create(ClothingColor clothingColor)
         {
-            throw new NotImplementedException();
+            return _repo.Create(clothingColor);
         }
 
-        public ClothingColor Delete(ClothingColor clothingArticel)
+        public ClothingColor Delete(ClothingColor clothingColor)
         {
-            throw new NotImplementedException();
+            return _repo.Delete(clothingColor);
         }
 
         public ClothingColor Read(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Read(id);
         }
 
-        public IList<ClothingColor> ReadAll()
+        public List<ClothingColor> ReadAll()
         {
-            throw new NotImplementedException();
+            return _repo.ReadAll().ToList();
         }
 
-        public ClothingColor Update(ClothingColor clothingArticel)
+        public ClothingColor Update(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Delete(Read(id));
         }
     }
 }

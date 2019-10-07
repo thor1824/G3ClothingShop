@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ClothShop.Core.DomainServices;
 using ClothShop.Core.Entity.Enum;
 
 namespace ClothShop.Core.ApplicationServices.Impl
 {
-    class SizeService : ISizeService
+    public class SizeService : ISizeService
     {
         private IRepository<ClothingSize> _repo;
 
@@ -15,29 +16,28 @@ namespace ClothShop.Core.ApplicationServices.Impl
             _repo = repo;
         }
 
-        public ClothingSize Create(ClothingSize clothingArticel)
+        public ClothingSize Create(ClothingSize clothingSize)
         {
-            throw new NotImplementedException();
-        }
-
-        public ClothingSize Delete(ClothingSize clothingArticel)
-        {
-            throw new NotImplementedException();
+            return _repo.Create(clothingSize);
         }
 
         public ClothingSize Read(int id)
         {
-            throw new NotImplementedException();
+            return _repo.Read(id);
         }
 
-        public IList<ClothingSize> ReadAll()
+        public List<ClothingSize> ReadAll()
         {
-            throw new NotImplementedException();
+            return _repo.ReadAll().ToList();
         }
 
-        public ClothingSize Update(ClothingSize clothingArticel)
+        public ClothingSize Update(ClothingSize clothingSize)
         {
-            throw new NotImplementedException();
+            return _repo.Update(clothingSize);
+        }
+        public ClothingSize Delete(int id)
+        {
+            return _repo.Delete(Read(id));
         }
     }
 }
