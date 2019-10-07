@@ -15,11 +15,12 @@ namespace ClothShop.Core.ApplicationServices.Impl
         {
             _repo = ClothRepo;
         }
-        public void Create(ClothingArticle CreateCloth)
+        public void Create(ClothingArticle createCloth)
         {
+
         }
 
-        public List<ClothingArticle> ReadAll(ClothingArticle ReadAllCloth)
+        public List<ClothingArticle> ReadAll(ClothingArticle readAllCloth)
         {
             return _repo.ReadAll().ToList();
         }
@@ -28,12 +29,12 @@ namespace ClothShop.Core.ApplicationServices.Impl
 
         }
 
-        public void Update(ClothingArticle UpdateCloth)
+        public void Update(ClothingArticle updateCloth)
         {
             
         }
 
-        public void Delete(ClothingArticle DeleteCloth)
+        public void Delete(ClothingArticle deleteCloth)
         {
 
         }
