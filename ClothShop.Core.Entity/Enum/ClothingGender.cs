@@ -4,10 +4,8 @@ using System.Text;
 
 namespace ClothShop.Core.Entity.Enum
 {
-    public enum ClothingGender
+    public class ClothingGender
     {
-        Male,
-        Female,
-        MultiGendered,
-    };
+        public string Gender { get; set; }   
+    }
 }

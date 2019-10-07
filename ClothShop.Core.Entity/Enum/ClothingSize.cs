@@ -4,13 +4,9 @@ using System.Text;
 
 namespace ClothShop.Core.Entity.Enum
 {
-    public enum ClothingSize
+    public class ClothingSize
     {
-        Xs,
-        Small,
-        Medium,
-        Large,
-        Xl,
-        Xxl
-    };
+       public string Size { get; set; }
+
+    }
 }
