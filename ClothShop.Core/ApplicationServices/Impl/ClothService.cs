@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using ClothShop.Core.DomainServices;
 using ClothShop.Core.Entity;
+using ClothShop.Core.ApplicationServices;
 
 namespace ClothShop.Core.ApplicationServices.Impl
 {
-    public class ClothService
+    public class ClothService : IClothService
     {
         private IRepository<ClothingArticle> _repo;
 
@@ -15,28 +16,32 @@ namespace ClothShop.Core.ApplicationServices.Impl
         {
             _repo = ClothRepo;
         }
-        public void Create(ClothingArticle createCloth)
-        {
-
-        }
 
         public List<ClothingArticle> ReadAll(ClothingArticle readAllCloth)
         {
             return _repo.ReadAll().ToList();
         }
-        public void Read (int id)
-        {
+        
 
+        public ClothingArticle Create(ClothingArticle cloth)
+        {
+            throw new NotImplementedException();
         }
 
-        public void Update(ClothingArticle updateCloth)
+
+        public  ClothingArticle Read(int id)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public void Delete(ClothingArticle deleteCloth)
+        public ClothingArticle Delete(ClothingArticle cloth)
         {
+            throw new NotImplementedException();
+        }
 
+        public ClothingArticle Update(ClothingArticle cloth)
+        {
+            throw new NotImplementedException();
         }
     }
 

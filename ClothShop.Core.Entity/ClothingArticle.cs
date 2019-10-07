@@ -20,6 +20,8 @@ namespace ClothShop.Core.Entity
 
         public ClothingGender Gender { get; set; }
 
+        public string ImageUrl { get; set; }
+
 
 
     }

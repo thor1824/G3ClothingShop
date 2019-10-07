@@ -19,7 +19,7 @@ namespace ClothShop.Infrastructure.Contexts
             modelBuilder.Entity<ClothColor>()
                 .HasKey(cc => new { cc.ClothID, cc.ColorID });
             modelBuilder.Entity<ClothColor>()
-                .HasOne(cc => cc.cloth)
+                .HasOne(cc => cc.Cloth)
                 .WithMany(c => c.Color)
                 .HasForeignKey(bc => bc.ClothID);
 

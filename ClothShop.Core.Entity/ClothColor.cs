@@ -10,7 +10,7 @@ namespace ClothShop.Core.Entity
         public int ColorID { get; set; }
         public ClothingColor Color { get; set; }
         public int ClothID { get; set; }
-        public ClothingArticle cloth { get; set; }
+        public ClothingArticle Cloth { get; set; }
         
 
     }
