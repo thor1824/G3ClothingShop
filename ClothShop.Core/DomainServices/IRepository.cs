@@ -8,11 +8,11 @@ namespace ClothShop.Core.DomainServices
     {
         T Create(T entity);
 
-        T Read(int ID);
+        T Read(int id);
 
         IEnumerable<T> ReadAll();
 
-        T Update(T enity);
+        T Update(T entity);
 
         T Delete(T entity);
     }

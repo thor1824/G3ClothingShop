@@ -22,27 +22,53 @@ namespace ClothShop.Infrastructure.Repositories
 
         public ClothingArticle Create(ClothingArticle entity)
         {
-            throw new NotImplementedException();
+            return _ctx.ClothingArticles.Add(entity).Entity;
         }
 
         public ClothingArticle Delete(ClothingArticle entity)
         {
-            throw new NotImplementedException();
+            _ctx.ClothingArticles.Remove(entity).State = EntityState.Deleted;
+            _ctx.SaveChanges();
+            return entity;
         }
 
-        public ClothingArticle Read(int ID)
+        public ClothingArticle Read(int id)
         {
-            throw new NotImplementedException();
+            return _ctx.ClothingArticles
+                .Include(c => c.Size).Include(c => c.Gender)
+                .Include(c => c.ClothingType)
+                .Include(c => c.Color).ThenInclude(cc => cc.Color)
+                .FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<ClothingArticle> ReadAll()
         {
-            return _ctx.Cloths.Include(c => c.Size).Include(c => c.Gender).Include(c => c.ClothingType).Include(c => c.Color).ThenInclude(cc => cc.Color);
+            return _ctx.ClothingArticles
+                .Include(c => c.Size)
+                .Include(c => c.Gender)
+                .Include(c => c.ClothingType)
+                .Include(c => c.Color).ThenInclude(cc => cc.Color);
         }
 
-        public ClothingArticle Update(ClothingArticle enity)
+        public ClothingArticle Update(ClothingArticle entity)
         {
-            throw new NotImplementedException();
+            var result = Read(entity.Id.Value);
+            if (result != null)
+            {
+                result.Size = entity.Size;
+                result.Color = entity.Color;
+                result.ClothingType = entity.ClothingType;
+                result.Price = entity.Price;
+                result.Color = entity.Color;
+                result.Gender = entity.Gender;
+                result.ImageUrl = entity.ImageUrl;
+                _ctx.SaveChanges();
+                return result;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

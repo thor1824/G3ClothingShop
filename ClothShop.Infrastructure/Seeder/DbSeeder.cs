@@ -12,7 +12,7 @@ namespace ClothShop.Infrastructure.Seeder
     {
         public static void Seed(ClothingContext ctx)
         {
-            //ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
 
             //CT
@@ -27,10 +27,6 @@ namespace ClothShop.Infrastructure.Seeder
             ClothingColor cc1 = new ClothingColor() {Color = "Black" };
             ClothingColor cc2 = new ClothingColor() { Color = "White" };
             ClothingColor cc3 = new ClothingColor() { Color = "Green" };
-            //Gender
-            ClothingGender cg1 = new ClothingGender() {Gender = "Male" };
-            ClothingGender cg2 = new ClothingGender() { Gender = "Female" };
-            ClothingGender cg3 = new ClothingGender() { Gender = "Multigender" };
 
             ClothingArticle cloth1 = new ClothingArticle()
             {
@@ -43,7 +39,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc1
                     }
                 },
-                Gender = cg1,
+                Gender = ClothingGender.Male,
                 Price = 350
             };
             ClothingArticle cloth2 = new ClothingArticle()
@@ -57,7 +53,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc2
                     }
                 },
-                Gender = cg1,
+                Gender = ClothingGender.Male,
                 Price = 250
             };
             ClothingArticle cloth3 = new ClothingArticle()
@@ -71,7 +67,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc3
                     }
                 },
-                Gender = cg1,
+                Gender = ClothingGender.Male,
                 Price = 200
             };
             ClothingArticle cloth4 = new ClothingArticle()
@@ -85,7 +81,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc1
                     }
                 },
-                Gender = cg1,
+                Gender = ClothingGender.Male,
                 Price = 300
             };
             ClothingArticle cloth5 = new ClothingArticle()
@@ -99,7 +95,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc1
                     }
                 },
-                Gender = cg1,
+                Gender = ClothingGender.Male,
                 Price = 500
             };
             ClothingArticle cloth6 = new ClothingArticle()
@@ -113,7 +109,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc1
                     }
                 },
-                Gender = cg3,
+                Gender = ClothingGender.Unisex,
                 Price = 400
             };
             ClothingArticle cloth7 = new ClothingArticle()
@@ -127,7 +123,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc1
                     }
                 },
-                Gender = cg1,
+                Gender = ClothingGender.Male,
                 Price = 200
             };
             ClothingArticle cloth8 = new ClothingArticle()
@@ -141,7 +137,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc2
                     }
                 },
-                Gender = cg2,
+                Gender = ClothingGender.Female,
                 Price = 600
             };
             ClothingArticle cloth9 = new ClothingArticle()
@@ -155,7 +151,7 @@ namespace ClothShop.Infrastructure.Seeder
                         Color = cc1
                     }
                 },
-                Gender = cg3,
+                Gender = ClothingGender.Unisex,
                 Price = 550
             };
 
