@@ -10,7 +10,7 @@ namespace ClothShop.Core.ApplicationServices
     {
         ClothingArticle Create(ClothingArticle cloth);
 
-        List<ClothingArticle> ReadAll(ClothingArticle cloth);
+        List<ClothingArticle> ReadAll();
 
         ClothingArticle Read(int id);
 

@@ -8,6 +8,7 @@ using ClothShop.Core.DomainServices;
 using ClothShop.Core.Entity;
 using ClothShop.Infrastructure.Contexts;
 using ClothShop.Infrastructure.Repositories;
+using ClothShop.Infrastructure.Seeder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -65,7 +66,7 @@ namespace ClothShop.RestApi
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
                     var ctx = scope.ServiceProvider.GetService<ClothingContext>();
-                    //DbSeeder.Seed(ctx);
+                    DbSeeder.Seed(ctx);
                 }
 
                 app.UseDeveloperExceptionPage();
@@ -75,7 +76,7 @@ namespace ClothShop.RestApi
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
                     var ctx = scope.ServiceProvider.GetService<ClothingContext>();
-                    //DbSeeder.Seed(ctx);
+                    DbSeeder.Seed(ctx);
                 }
 
                 app.UseHsts();

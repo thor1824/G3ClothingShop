@@ -17,7 +17,7 @@ namespace ClothShop.Core.ApplicationServices.Impl
             _repo = ClothRepo;
         }
 
-        public List<ClothingArticle> ReadAll(ClothingArticle readAllCloth)
+        public List<ClothingArticle> ReadAll()
         {
             return _repo.ReadAll().ToList();
         }

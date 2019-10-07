@@ -10,8 +10,11 @@ namespace ClothShop.Infrastructure.Seeder
 {
     public class DbSeeder
     {
-        public static void Seed(ClothingContext dbFillContext)
+        public static void Seed(ClothingContext ctx)
         {
+            //ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureCreated();
+
             //CT
             ClothingType ct1 = new ClothingType() {CType = "T-Shirt"};
             ClothingType ct2 = new ClothingType() {CType = "Jacket"};
@@ -156,16 +159,16 @@ namespace ClothShop.Infrastructure.Seeder
                 Price = 550
             };
 
-            dbFillContext.Add(cloth1);
-            dbFillContext.Add(cloth2);
-            dbFillContext.Add(cloth3);
-            dbFillContext.Add(cloth4);
-            dbFillContext.Add(cloth5);
-            dbFillContext.Add(cloth6);
-            dbFillContext.Add(cloth7);
-            dbFillContext.Add(cloth8);
-            dbFillContext.Add(cloth9);
-            dbFillContext.SaveChanges();
+            ctx.Add(cloth1);
+            ctx.Add(cloth2);
+            ctx.Add(cloth3);
+            ctx.Add(cloth4);
+            ctx.Add(cloth5);
+            ctx.Add(cloth6);
+            ctx.Add(cloth7);
+            ctx.Add(cloth8);
+            ctx.Add(cloth9);
+            ctx.SaveChanges();
 
 
         }
