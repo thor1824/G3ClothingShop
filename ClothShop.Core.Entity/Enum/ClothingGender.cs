@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClothShop.Core.Entity.Enum
 {
-    class ClothingGender
+    public enum ClothingGender
     {
     }
 }
