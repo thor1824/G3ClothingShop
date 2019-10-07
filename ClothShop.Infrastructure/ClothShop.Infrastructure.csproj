@@ -6,7 +6,11 @@
 
   <ItemGroup>
     <Folder Include="Contexts\" />
-    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClothShop.Core.Entity\ClothShop.Core.Entity.csproj" />
+    <ProjectReference Include="..\ClothShop.Core\ClothShop.Core.csproj" />
   </ItemGroup>
 
 </Project>
