@@ -4,13 +4,9 @@ using System.Text;
 
 namespace ClothShop.Core.Entity.Enum
 {
-    public enum ClothingType
+    public class ClothingType
     {
-        TShirt,
-        Sweater,
-        Hoodie,
-        TankTop,
-        Jacket,
-        Top,
-    };
+        public string CType { get; set; }
+        
+    }
 }

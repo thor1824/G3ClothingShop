@@ -4,19 +4,9 @@ using System.Text;
 
 namespace ClothShop.Core.Entity.Enum
 {
-    public enum ClothingColor
+    public class ClothingColor
     {
-        Black,
-        White,
-        Yellow,
-        Orange,
-        Blue,
-        Red,
-        Grey,
-        Purple,
-        Brown,
-        Green,
-        Pink,
+        public string Color { get; set; }
 
-    };
+    }
 }

@@ -12,7 +12,7 @@ namespace ClothShop.Core.Entity
 
         public ClothingSize Size { get; set; }
 
-        public ClothingColor Color { get; set; }
+        public IList<ClothingColor> Color { get; set; }
 
         public ClothingType ClothingType { get; set; }
 
