@@ -6,5 +6,11 @@ namespace ClothShop.Core.Entity.Enum
 {
     public enum ClothingSize
     {
-    }
+        Xs,
+        Small,
+        Medium,
+        Large,
+        Xl,
+        Xxl
+    };
 }
