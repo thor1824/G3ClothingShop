@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClothShop.Core.ApplicationServices;
 using ClothShop.Core.ApplicationServices.Impl;
 using ClothShop.Core.Entity;
+using ClothShop.RestApi.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClothShop.RestApi.Controllers
@@ -30,7 +31,7 @@ namespace ClothShop.RestApi.Controllers
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(  e.StackTrace);
                 return BadRequest(e.Message);
             }
             
@@ -54,10 +55,20 @@ namespace ClothShop.RestApi.Controllers
 
         // POST api/clothings
         [HttpPost]
-        public ActionResult<ClothingArticle> Post([FromBody] ClothingArticle value)
+        public ActionResult<ClothingArticle> Post([FromBody] DTOCreateCloth value)
         {
             try
             {
+                ClothingArticle ca = new ClothingArticle();
+                List<ClothColor> list = new List<ClothColor>();
+                foreach (var item in value.colors)
+                {
+                    list.Add(new ClothColor()
+                    {
+
+                    }
+                    );
+                }
                 return Ok(_clothService.Create(value));
             }
             catch (Exception e)

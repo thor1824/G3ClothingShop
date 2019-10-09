@@ -6,6 +6,7 @@ using ClothShop.Core.ApplicationServices;
 using ClothShop.Core.ApplicationServices.Impl;
 using ClothShop.Core.DomainServices;
 using ClothShop.Core.Entity;
+using ClothShop.Core.Entity.Enum;
 using ClothShop.Infrastructure.Contexts;
 using ClothShop.Infrastructure.Repositories;
 using ClothShop.Infrastructure.Seeder;
@@ -52,7 +53,17 @@ namespace ClothShop.RestApi
             );
 
             services.AddScoped<IRepository<ClothingArticle>, ClothingRepository>();
+            services.AddScoped<IRepository<ClothingSize>, SizeRepository>();
+            services.AddScoped<IRepository<ClothingColor>, ColorRepository>();
+            services.AddScoped<IRepository<ClothingType>, TypeRepository>();
+
+
             services.AddScoped<IClothService, ClothService>();
+            services.AddScoped<ISizeService, SizeService>();
+            services.AddScoped<ITypeService, TypeService>();
+            services.AddScoped<IColorService, ColorService>();
+
+
 
 
         }
@@ -82,6 +93,7 @@ namespace ClothShop.RestApi
                 app.UseHsts();
             }
 
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
         }

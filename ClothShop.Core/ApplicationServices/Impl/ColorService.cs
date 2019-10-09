@@ -21,9 +21,9 @@ namespace ClothShop.Core.ApplicationServices.Impl
             return _repo.Create(clothingColor);
         }
 
-        public ClothingColor Delete(ClothingColor clothingColor)
+        public ClothingColor Delete(int id)
         {
-            return _repo.Delete(clothingColor);
+            return _repo.Delete(Read(id));
         }
 
         public ClothingColor Read(int id)
@@ -36,9 +36,9 @@ namespace ClothShop.Core.ApplicationServices.Impl
             return _repo.ReadAll().ToList();
         }
 
-        public ClothingColor Update(int id)
+        public ClothingColor Update(ClothingColor clothingColor)
         {
-            return _repo.Delete(Read(id));
+            return _repo.Update(clothingColor);
         }
     }
 }

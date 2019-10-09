@@ -45,7 +45,6 @@ namespace ClothShop.Infrastructure.Repositories
         {
             return _ctx.ClothingArticles
                 .Include(c => c.Size)
-                .Include(c => c.Gender)
                 .Include(c => c.ClothingType)
                 .Include(c => c.Color).ThenInclude(cc => cc.Color);
         }
