@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClothShop.Core.ApplicationServices;
 using ClothShop.Core.ApplicationServices.Impl;
 using ClothShop.Core.Entity;
+using ClothShop.Core.Entity.Enum;
 using ClothShop.RestApi.DTO;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,15 @@ namespace ClothShop.RestApi.Controllers
     {
 
         private readonly IClothService _clothService;
-        public ClothingsController(IClothService clothService)
+        private readonly ITypeService _ts;
+        private readonly IColorService _cs;
+        private readonly ISizeService _ss;
+        public ClothingsController(IClothService clothService, ITypeService ts, IColorService cs, ISizeService ss)
         {
             _clothService = clothService;
+            _ts = ts;
+            _cs = cs;
+            _ss = ss;
         }
 
         // GET api/clothings
@@ -59,17 +66,27 @@ namespace ClothShop.RestApi.Controllers
         {
             try
             {
-                ClothingArticle ca = new ClothingArticle();
+                ClothingArticle ca = new ClothingArticle()
+                {
+                    Size = _ss.Read(value.size),
+                    ClothingType = _ts.Read(value.size),
+                    Price = value.Price,
+                    ImageUrl = value.ImageUrl,
+                    Gender = (ClothingGender)value.Gender
+                    
+                };
                 List<ClothColor> list = new List<ClothColor>();
                 foreach (var item in value.colors)
                 {
                     list.Add(new ClothColor()
                     {
-
+                        Color = _cs.Read(item)
                     }
-                    );
+                    ); 
                 }
-                return Ok(_clothService.Create(value));
+                ca.Color = list;
+
+                return Ok(_clothService.Create(ca));
             }
             catch (Exception e)
             {
@@ -80,12 +97,31 @@ namespace ClothShop.RestApi.Controllers
 
         // PUT api/clothings/5
         [HttpPut("{id}")]
-        public ActionResult<ClothingArticle> Put(int id, [FromBody] ClothingArticle value)
+        public ActionResult<ClothingArticle> Put(int id, [FromBody] DTOUpdateCloth value)
         {
             try
             {
-                value.Id = id;
-                return Ok(_clothService.Update(value));
+                ClothingArticle ca = _clothService.Read(id);
+
+                ca.Size = _ss.Read(value.size);
+                ca.ClothingType = _ts.Read(value.ClothingType);
+                ca.Price = value.Price;
+                ca.ImageUrl = value.ImageUrl;
+                ca.Gender = (ClothingGender)value.Gender;
+
+
+                List<ClothColor> list = new List<ClothColor>();
+                foreach (var item in value.colors)
+                {
+                    list.Add(new ClothColor()
+                    {
+                        Color = _cs.Read(item)
+                    }
+                    );
+                }
+                ca.Color = list;
+
+                return Ok(_clothService.Update(ca));
             }
             catch (Exception e)
             {

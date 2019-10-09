@@ -22,7 +22,9 @@ namespace ClothShop.Infrastructure.Repositories
 
         public ClothingArticle Create(ClothingArticle entity)
         {
-            return _ctx.ClothingArticles.Add(entity).Entity;
+            var newEntity = _ctx.ClothingArticles.Add(entity).Entity;
+            _ctx.SaveChanges();
+            return newEntity;
         }
 
         public ClothingArticle Delete(ClothingArticle entity)
@@ -35,7 +37,7 @@ namespace ClothShop.Infrastructure.Repositories
         public ClothingArticle Read(int id)
         {
             return _ctx.ClothingArticles
-                .Include(c => c.Size).Include(c => c.Gender)
+                .Include(c => c.Size)
                 .Include(c => c.ClothingType)
                 .Include(c => c.Color).ThenInclude(cc => cc.Color)
                 .FirstOrDefault(p => p.Id == id);
